@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}">
+<head>
+<title>Error Page</title>
+</head>
+<body>
+	<div id="content">
+		<div class="text-center md:mx-auto w-1/2">
+			<div data-th-replace="messages::messagebox"></div>
+		</div>
+	</div>
+
+	<script>
+		console.log("error page")
+	</script>
+</body>
+</html>

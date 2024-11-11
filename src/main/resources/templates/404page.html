@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}">
+<head>
+    <title>Page Not Found 404</title>
+</head>
+<body>
+<div id="content">
+
+
+    <section class="pt-16">
+        <div class="flex flex-col items-center">
+        <img src="https://res.cloudinary.com/dfnyfupmc/image/upload/v1731296686/404-computer_connecteease.svg" alt="">
+        <p class="text-blue-600 font-semibold text-xl">404 Not Found</p>
+            <h1 class="text-lg">Whoops! That page doesn't exist.</h1>
+        </div>
+    </section>
+
+
+</div>
+
+<script>
+    console.log("404 page")
+</script>
+</body>
+</html>

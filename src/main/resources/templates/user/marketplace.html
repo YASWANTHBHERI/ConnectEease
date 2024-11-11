@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}">
+<head>
+<title>Contact Page</title>
+</head>
+<body>
+	<div id="content">
+
+		<!-- Side Bar  -->
+		<!-- <div data-th-replace="~{user/sidebar::sidebar}"></div> -->
+
+
+		<!-- expore apps -->
+		<section
+			class="py-36 p-5 bg-sky-600 h-screen overflow-auto sm:pt-20 sm:pl-20 dark:bg-gray-900">
+			<div class="pb-20">
+				<div class="flex flex-col justify-center items-center gap-2">
+					<div data-th-replace="~{messages::messagebox}"></div>
+					<h1 class="text-white font-semibold text-3xl">Explore Apps</h1>
+					<p class="text-white text-sm font-semibold">Integrate
+						ConnectEease applications with your contacts</p>
+				</div>
+
+
+				<!-- Featured -->
+				<h1 class="pb-3 text-white font-semibold text-xl">Featured apps</h1>
+				<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+					<!-- Card 1: Messaging with Twilio -->
+					<div
+						class="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 transform hover:-translate-y-2 transition-transform duration-300">
+						<div class="flex items-center justify-center mb-4">
+							<img class="w-1/4 max-w-xs h-auto"
+								src="https://res.cloudinary.com/dfnyfupmc/image/upload/v1730436991/twilio_connectEase.png"
+								alt="twilio" />
+						</div>
+						<h3
+							class="text-xl font-semibold text-gray-800 dark:text-white text-center mb-2">Messaging
+							with Twilio</h3>
+						<p class="text-gray-600 dark:text-gray-300 text-center">
+							Seamlessly integrate messaging services into your applications
+							with Twilio. Send and receive SMS, automate notifications, and
+							improve customer engagement.</p>
+
+						<div class="text-center pt-2">
+							<div
+								data-th-if="${installedApps!=null and installedApps.contains('twilio')}">
+								<button class="px-7 py-1 bg-yellow-400 text-white">
+									<span>Installed</span>
+								</button>
+							</div>
+							<div
+								data-th-unless="${installedApps!=null and installedApps.contains('twilio')}">
+								<button class="px-7 py-1 bg-yellow-400 text-white" id="twilio"
+									onclick="openExtensionInstallationModal('twilio')">
+									Install</button>
+							</div>
+
+						</div>
+					</div>
+
+					<!-- Card 2: Emailing with Mailtrap -->
+					<div
+						class="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 transform hover:-translate-y-2 transition-transform duration-300">
+						<div class="flex items-center justify-center mb-4">
+							<img
+								src="https://res.cloudinary.com/dfnyfupmc/image/upload/v1730436991/mailstrap_connectEease.png"
+								alt="Mailtrap Logo" class="w-1/4 max-w-xs">
+						</div>
+						<h3
+							class="text-xl font-semibold text-gray-800 dark:text-white text-center mb-2">Emailing
+							with Mailtrap</h3>
+						<p class="text-gray-600 dark:text-gray-300 text-center">Test,
+							monitor, and improve email workflows with Mailtrap’s safe
+							environment. Ensure emails reach your users with effective
+							messaging solutions.</p>
+
+						<div class="text-center pt-2">
+							<div
+								data-th-if="${installedApps!=null and installedApps.contains('mailstrap')}">
+								<button class="px-7 py-1 bg-yellow-400 text-white">Installed</button>
+							</div>
+							<div
+								data-th-unless="${installedApps!=null and installedApps.contains('mailstrap')}">
+								<button class="px-7 py-1 bg-yellow-400 text-white"
+									id="mailstrap"
+									onclick="openExtensionInstallationModal('mailstrap')">Install</button>
+							</div>
+
+
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+			<!-- Marketplace Modal  -->
+			<div data-th-replace="~{user/marketplace_modal::marketplace}"></div>
+		</section>
+
+
+	</div>
+
+	<script data-th-src="@{/js/marketplace.js}"></script>
+	<script>
+		console.log("marketplace page")
+	</script>
+</body>
+</html>

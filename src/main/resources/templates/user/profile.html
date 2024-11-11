@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}">
+<head>
+<title data-th-text="${loggedInUser.name}+' | PROFILE'"></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+	<div id="content">
+
+		<!-- Side Bar  -->
+		<div data-th-replace="~{user/sidebar::sidebar}"></div>
+
+		<div class="md:pl-64">
+			<div class="container mx-auto pt-32 md:py-40">
+				<div>
+
+					<div
+						class="bg-white dark:bg-gray-800 relative shadow rounded-lg w-5/6 md:w-5/6  lg:w-4/6 xl:w-3/6 mx-auto">
+						<div class="flex justify-center">
+							<img data-th-src="@{${loggedInUser.profilePic}}" id="profile_pic_profilePage"
+								alt=""
+								class="rounded-full mx-auto absolute -top-20 w-32 h-32 shadow-md border-4 border-white transition duration-200 transform hover:scale-110">
+						</div>
+							
+						<div class="mt-16">
+							<h1 class="font-bold text-center text-3xl text-gray-900 dark:text-white"
+                                data-th-text="${loggedInUser.name}"></h1>
+                            <p class="text-center text-sm text-gray-500 dark:text-gray-300 font-medium"
+                                data-th-text="${loggedInUser.email}"></p>
+                            <div class="my-5 px-6">
+                                <a data-th-href="@{'/user/updateprofile'}"
+                                    class="text-gray-200 uppercase block rounded-lg text-center font-medium leading-6 px-6 py-3 bg-black hover:bg-white-800 dark:bg-blue-600 dark:hover:bg-blue-700 hover:text-white">
+                                    Update profile
+                                </a>
+                            </div>
+							<div class="flex justify-between items-center my-5 px-6">
+								<a href="#"
+									class="dark:text-white text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded transition duration-150 ease-in font-medium text-sm text-center w-full py-3">Linkedin</a>
+								<a href="#"
+									class="dark:text-white text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded transition duration-150 ease-in font-medium text-sm text-center w-full py-3">Website</a>
+								<a href="#"
+									class="dark:text-white text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded transition duration-150 ease-in font-medium text-sm text-center w-full py-3">Email</a>
+								<a data-th-href="@{'/user/contacts/marketplace'}"
+									class="dark:text-white text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded transition duration-150 ease-in font-medium text-sm text-center w-full py-3">Products</a>
+							</div>
+
+							<div class="w-full">
+								<h3 class="font-medium text-gray-900 text-left px-6 dark:text-white">Account
+									Details</h3>
+								<div
+									class="mt-5 w-full flex flex-col items-center overflow-hidden text-sm">
+									<!-- Phone  -->
+									<div class="w-full border-t border-gray-100 dark:border-gray-700 text-gray-600 dark:text-gray-300 py-4 pl-6 pr-3 hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-150">
+                                        <div class="flex gap-2 items-center">
+                                            <i class="fa-solid fa-phone"></i>
+                                            <h1 data-th-text="${loggedInUser.phoneNumber}"></h1>
+                                        </div>
+                                    </div>
+
+									<!-- Email  -->
+									 <div class="w-full border-t border-gray-100 dark:border-gray-700 text-gray-600 dark:text-gray-300 py-4 pl-6 pr-3 hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-150">
+                                        <div class="flex gap-2 items-center">
+                                            <i class="fa-solid fa-envelope"></i>
+                                            <h1 data-th-text="${loggedInUser.email}"></h1>
+                                        </div>
+                                    </div>
+									
+									<!-- Description  -->
+									<div class="w-full border-t border-gray-100 dark:border-gray-700 text-gray-600 dark:text-gray-300 py-4 pl-6 pr-3 hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-150">
+                                        <div class="flex gap-2 items-center">
+                                            <i class="fa-solid fa-note-sticky"></i>
+                                            <span>About:</span>
+                                            <h1 data-th-text="${loggedInUser.about}"></h1>
+                                        </div>
+                                    </div>
+									
+									<!-- Email Verified  -->
+									<div class="w-full border-t border-gray-100 dark:border-gray-700 text-gray-600 dark:text-gray-300 py-4 pl-6 pr-3 hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-150">
+                                        <div class="flex gap-2 items-center">
+                                            <i class="fa-solid fa-square-check"></i>
+                                            <h1>Email verified: 
+                                                <span class="font-semibold" data-th-if="${loggedInUser.emailVerified}">Yes</span>
+                                                <span class="font-semibold" data-th-unless="${loggedInUser.emailVerified}">No</span>
+                                            </h1>
+                                        </div>
+                                    </div>
+									
+									<!-- Phone Verified  -->
+									<div class="w-full border-t border-gray-100 dark:border-gray-700 text-gray-600 dark:text-gray-300 py-4 pl-6 pr-3 hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-150">
+                                        <div class="flex gap-2 items-center">
+                                            <i class="fa-solid fa-square-check"></i>
+                                            <h1>Phone verified:
+                                                <span class="font-semibold" data-th-if="${loggedInUser.phoneVerified}">Yes</span>
+                                                <span class="font-semibold" data-th-unless="${loggedInUser.phoneVerified}">No</span>
+                                            </h1>
+                                        </div>
+                                    </div>
+									<!-- Account Verified  -->
+									<div class="w-full border-t border-gray-100 dark:border-gray-700 text-gray-600 dark:text-gray-300 py-4 pl-6 pr-3 hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-150">
+                                        <div class="flex gap-2 items-center">
+                                            <i class="fa-solid fa-square-check"></i>
+                                            <h1>Account verified:
+                                                <span class="font-semibold" data-th-if="${loggedInUser.enabled}">Yes</span>
+                                                <span class="font-semibold" data-th-unless="${loggedInUser.enabled}">No</span>
+                                            </h1>
+                                        </div>
+                                    </div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+
+		</div>
+
+	</div>
+
+	<script>
+		console.log("Profile page")
+	</script>
+</body>
+</html>
