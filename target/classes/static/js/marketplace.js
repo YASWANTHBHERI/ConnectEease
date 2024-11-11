@@ -19,7 +19,7 @@ const options = {
 
 	},
 	onToggle: () => {
-		//console.log('modal has been toggled');
+
 	},
 };
 
@@ -61,7 +61,7 @@ async function installMarketPlaceApp(){
 	//console.log("replacing user to login");
 		window.location.replace(`${baseUrl}/user/contacts/send/${appcode}?id=123`);
 	}catch(error){
-		//console.log(error);
+
 	}
 	
 }

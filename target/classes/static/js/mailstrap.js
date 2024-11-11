@@ -85,7 +85,7 @@ async function sendMessage() {
 		resetMessageConfirmation('message');
 
 	} catch (error) {
-		//console.log(error);
+
 	}
 
 }
