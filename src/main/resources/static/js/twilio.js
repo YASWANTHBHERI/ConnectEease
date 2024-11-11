@@ -1,6 +1,6 @@
 //console.log("twilio script loaded")
 const baseUrl = "http://localhost:8080"
-const liveURL = "";
+const liveURL = "https://connecteease-production.up.railway.app";
 
 function removeRecipient(item) {
 	const recipientItem = item.parentNode;
@@ -61,7 +61,7 @@ async function sendMessage() {
 		message: messageBody
 	}
 	try {
-		const response = await fetch(`${baseUrl}/user/contacts/send/twilio/message`, {
+		const response = await fetch(`${liveURL}/user/contacts/send/twilio/message`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'

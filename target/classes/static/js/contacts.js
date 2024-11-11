@@ -1,7 +1,7 @@
 console.log("contact script");
 
 const baseURL = "http://localhost:8080"
-const liveURL="";
+const liveURL="https://connecteease-production.up.railway.app";
 
 const viewContactModal = document.getElementById("view_contact_modal");
 
@@ -42,7 +42,7 @@ async function loadContactData(id) {
 
 	try {
 		const data = await (
-			await fetch(`${baseURL}/api/contacts/${id}`)
+			await fetch(`${liveURL}/api/contacts/${id}`)
 		).json();
 		//console.log(data);
 		manipulateModalHtml(data, id);
@@ -93,7 +93,7 @@ function deleteContact(id) {
 	}).then((result) => {
 		/* Read more about isConfirmed, isDenied below */
 		if (result.isConfirmed) {
-			const url = `${baseURL}/user/contacts/delete/${id}`;
+			const url = `${liveURL}/user/contacts/delete/${id}`;
 			window.location.replace(url);
 		}
 	});
@@ -113,7 +113,7 @@ async function selectGroupOfContacts() {
 
 	const selectAllCheckboxStatus = selectAllCheckbox.checked;
 	try {
-		const url = `${baseURL}/user/contacts/send/verify/install?appCode=twilio`;
+		const url = `${liveURL}/user/contacts/send/verify/install?appCode=twilio`;
 		//console.log(url);
 		const response = await fetch(url);
 		const jsonResponse = await response.json();
@@ -128,7 +128,7 @@ async function selectGroupOfContacts() {
 	} catch (error) {
 	}
 	try {
-		const url = `${baseURL}/user/contacts/send/verify/install?appCode=mailstrap`;
+		const url = `${liveURL}/user/contacts/send/verify/install?appCode=mailstrap`;
 		//console.log(url);
 		const response = await fetch(url);
 		const jsonResponse = await response.json();
@@ -151,12 +151,12 @@ async function sendActionMessage(appCode) {
 	const queryString = checkedValues.map(val => `${encodeURIComponent(val)}`).join(',');
 	//console.log("encode");
 	//console.log(queryString);
-	const url = `${baseURL}/user/contacts/send/${appCode}?id=` + checkedValues;
+	const url = `${liveURL}/user/contacts/send/${appCode}?id=` + checkedValues;
 	//console.log(url);
 	await fetch(url);
 
 	// Redirect to the twilio page after sending the request
-	window.location.href = `${baseURL}/user/contacts/send/${appCode}?id=${queryString}`;
+	window.location.href = `${liveURL}/user/contacts/send/${appCode}?id=${queryString}`;
 }
 
 function trackCheckboxes() {

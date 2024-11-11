@@ -1,6 +1,6 @@
 //console.log("marketplace loaded..")
 const baseUrl = "http://localhost:8080";
-const liveURL ="";
+const liveURL ="https://connecteease-production.up.railway.app";
 
 const twilio_intstall_button = document.querySelector("#twilio_install_button")
 
@@ -51,7 +51,7 @@ function openExtensionInstallationModal(app_name){
 
 async function installMarketPlaceApp(){
 	const appcode=document.querySelector(".marketPlaceModal_app_install_button").getAttribute("id");
-	const url = `${baseUrl}/user/contacts/marketplace/install?appcode=`+appcode;
+	const url = `${liveURL}/user/contacts/marketplace/install?appcode=`+appcode;
 	
 	try{
 		//console.log(url);
@@ -59,7 +59,7 @@ async function installMarketPlaceApp(){
 	//console.log("marketplace installation response",response);
 	localStorage.setItem(appcode+"Installed",true);
 	//console.log("replacing user to login");
-		window.location.replace(`${baseUrl}/user/contacts/send/${appcode}?id=123`);
+		window.location.replace(`${liveURL}/user/contacts/send/${appcode}?id=123`);
 	}catch(error){
 
 	}

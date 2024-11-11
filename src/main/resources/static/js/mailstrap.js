@@ -1,7 +1,7 @@
 //console.log("mailstrap script loaded");
 
 const baseUrl = "http://localhost:8080"
-const liveUrl="";
+const liveUrl="https://connecteease-production.up.railway.app";
 
 function removeRecipient(item) {
 	const recipientItem = item.parentNode;
@@ -71,7 +71,7 @@ async function sendMessage() {
 	}
 	try {
 		//console.log("api called");
-		const response = await fetch(`${baseUrl}/user/contacts/send/mailstrap/mail`, {
+		const response = await fetch(`${liveUrl}/user/contacts/send/mailstrap/mail`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
