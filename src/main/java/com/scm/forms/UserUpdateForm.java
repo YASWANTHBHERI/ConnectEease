@@ -29,8 +29,8 @@ public class UserUpdateForm {
 	@Email(message = "Invalid Email")
 	private String email;
 
-	@Size(min = 6, message = "password length should be more than 6")
-	private String password;
+	/*@Size(min = 6, message = "password length should be more than 6")
+	private String password;*/
 
 	@NotBlank(message = "About is required")
 	private String about;
