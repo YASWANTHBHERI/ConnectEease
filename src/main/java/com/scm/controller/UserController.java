@@ -153,13 +153,13 @@ public class UserController {
 			userUpdateForm.setProfilePic(user.getProfilePic());
 		}
 
-		logger.info("userform: {}", userUpdateForm);
+		logger.info("userForm: {}", userUpdateForm);
 		model.addAttribute("userForm", userUpdateForm);
 		return "user/update_user_view";
 	}
 
 	@RequestMapping(value = "/updateprofile", method = RequestMethod.POST)
-	public String updateProfile(@Valid @ModelAttribute UserUpdateForm userUpdateForm, BindingResult rBindingResult, Model model,
+	public String updateProfile(@Valid @ModelAttribute("userForm") UserUpdateForm userUpdateForm, BindingResult rBindingResult, Model model,
 			Authentication authentication,HttpSession httpSession) {
 		
 		logger.info("user updating postmethod called");
