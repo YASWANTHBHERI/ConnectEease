@@ -1,10 +1,14 @@
 package com.scm.helpers;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 
 public class Helper {
+
+	@Value("${server.baseUrl}")
+	private static String liveUrl;
 
 	public static String getEmailOfLoggedInUser(Authentication authentication) {
 
@@ -42,7 +46,7 @@ public class Helper {
 	}
 	
 	public static String getEmailVerificationLink(String emailToken) {
-		String liveLink = "https://connecteease-production.up.railway.app/auth/verify-email?token="+emailToken;
+		String liveLink = liveUrl+"/auth/verify-email?token="+emailToken;
 		String link = "http://localhost:8080/auth/verify-email?token="+emailToken;
 		return liveLink;
 	}
