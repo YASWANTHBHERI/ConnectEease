@@ -1,7 +1,7 @@
 console.log("contact script");
 
 const baseURL = "http://localhost:8080"
-const liveURL="https://connecteease-production.up.railway.app";
+const liveURL="https://connecteease.onrender.com";
 
 const viewContactModal = document.getElementById("view_contact_modal");
 

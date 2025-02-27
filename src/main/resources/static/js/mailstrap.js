@@ -1,7 +1,7 @@
 //console.log("mailstrap script loaded");
 
 const baseUrl = "http://localhost:8080"
-const liveUrl="https://connecteease-production.up.railway.app";
+const liveUrl="https://connecteease.onrender.com";
 
 function removeRecipient(item) {
 	const recipientItem = item.parentNode;

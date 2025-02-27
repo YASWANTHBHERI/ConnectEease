@@ -1,6 +1,6 @@
 //console.log("marketplace loaded..")
 const baseUrl = "http://localhost:8080";
-const liveURL ="https://connecteease-production.up.railway.app";
+const liveURL ="https://connecteease.onrender.com";
 
 const twilio_intstall_button = document.querySelector("#twilio_install_button")
 

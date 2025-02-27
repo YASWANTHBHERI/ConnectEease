@@ -1,6 +1,6 @@
 //console.log("twilio script loaded")
 const baseUrl = "http://localhost:8080"
-const liveURL = "https://connecteease-production.up.railway.app";
+const liveURL = "https://connecteease.onrender.com";
 
 function removeRecipient(item) {
 	const recipientItem = item.parentNode;
