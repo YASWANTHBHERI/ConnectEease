@@ -67,15 +67,16 @@
 						</div>
 
 					</form>
-
-					<div
-						class="social-buttons-container flex flex-col justify-center items-center space-y-2 mt-5">
 						<!-- google login -->
+
+ 					<div
+						class="social-buttons-container flex flex-col justify-center items-center space-y-2 mt-5">
+						
 						<a
 							class="px-3 py-2  font-semibold rounded login-with-google-btn"
 							data-th-href="@{'/oauth2/authorization/google'}">Sign in With
 							Google</a>
-						<!-- github login  -->
+						
 						<a type="button" data-th-href="@{'/oauth2/authorization/github'}"
 							class="px-3 py-2  flex justify-center items-center bg-gray-600 hover:bg-gray-700 focus:ring-gray-500 focus:ring-offset-gray-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded">
 							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
@@ -85,6 +86,7 @@
   								</svg> Sign in with GitHub
 						</a>
 					</div>
+					<!-- github login  -->
 				</div>
 
 			</div>
