@@ -4,11 +4,19 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.security.oauth2.core.user.OAuth2User;
+import javax.annotation.PostConstruct;
 
 public class Helper {
 
 	@Value("${server.baseUrl}")
-	private String liveUrl;
+	private String liveUrlInstance;
+	private static String liveUrl;
+
+	// Dependency injection works at instance level, we can not directly inject the value to static variable for that using postconstruct to inject the value into liveUrl
+	PostConstruct
+	public void init(){
+		liveUrl = liveUrlInstance;
+	}
 
 	public static String getEmailOfLoggedInUser(Authentication authentication) {
 
@@ -45,7 +53,7 @@ public class Helper {
 
 	}
 	
-	public String getEmailVerificationLink(String emailToken) {
+	public static String getEmailVerificationLink(String emailToken) {
 		String liveLink = liveUrl+"/auth/verify-email?token="+emailToken;
 		String link = "http://localhost:8080/auth/verify-email?token="+emailToken;
 		return liveLink;
