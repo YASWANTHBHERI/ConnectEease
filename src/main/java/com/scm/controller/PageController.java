@@ -88,7 +88,11 @@ public class PageController {
 
 //		checking if the user is already exists or not
 		String email = userForm.getEmail();
-		if (userService.isUserExistByEmail(email)) {
+		if(userService.isUserExistByEmail(email) && !user.isEmailVerified()){
+			userService.resendEmailVerificationLink(email);
+			return "redirect:/register";
+		}
+		else if (userService.isUserExistByEmail(email)) {
 			Message message = Message.builder().content("Email already exists").type(MessageType.red).build();
 			session.setAttribute("message", message);
 			return "redirect:/register";
