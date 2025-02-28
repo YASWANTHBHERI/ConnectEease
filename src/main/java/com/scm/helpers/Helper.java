@@ -44,7 +44,7 @@ public class Helper {
 	}
 	
 	public static String getEmailVerificationLink(String emailToken) {
-		String liveUrl = "https://connecteease.onrender.com"
+		String liveUrl = "https://connecteease.onrender.com";
 		String liveLink = liveUrl+"/auth/verify-email?token="+emailToken;
 		String link = "http://localhost:8080/auth/verify-email?token="+emailToken;
 		return liveLink;
