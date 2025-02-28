@@ -8,16 +8,6 @@ import javax.annotation.PostConstruct;
 
 public class Helper {
 
-	@Value("${server.baseUrl}")
-	private String liveUrlInstance;
-	private static String liveUrl;
-
-	// Dependency injection works at instance level, we can not directly inject the value to static variable for that using postconstruct to inject the value into liveUrl
-	PostConstruct
-	public void init(){
-		liveUrl = liveUrlInstance;
-	}
-
 	public static String getEmailOfLoggedInUser(Authentication authentication) {
 
 		if (authentication instanceof OAuth2AuthenticationToken) {
@@ -54,6 +44,7 @@ public class Helper {
 	}
 	
 	public static String getEmailVerificationLink(String emailToken) {
+		String liveUrl = "https://connecteease.onrender.com"
 		String liveLink = liveUrl+"/auth/verify-email?token="+emailToken;
 		String link = "http://localhost:8080/auth/verify-email?token="+emailToken;
 		return liveLink;
