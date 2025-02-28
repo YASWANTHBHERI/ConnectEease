@@ -8,7 +8,7 @@ import org.springframework.security.oauth2.core.user.OAuth2User;
 public class Helper {
 
 	@Value("${server.baseUrl}")
-	private static String liveUrl;
+	private String liveUrl;
 
 	public static String getEmailOfLoggedInUser(Authentication authentication) {
 
@@ -45,7 +45,7 @@ public class Helper {
 
 	}
 	
-	public static String getEmailVerificationLink(String emailToken) {
+	public String getEmailVerificationLink(String emailToken) {
 		String liveLink = liveUrl+"/auth/verify-email?token="+emailToken;
 		String link = "http://localhost:8080/auth/verify-email?token="+emailToken;
 		return liveLink;
