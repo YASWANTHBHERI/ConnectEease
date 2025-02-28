@@ -23,4 +23,6 @@ public interface UserService {
 	User getUserByEmail(String email);
 	
 	User verifyEmail(String verificationToken);
+	
+	void resendEmailVerificationLink(String email);
 }
