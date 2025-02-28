@@ -117,5 +117,12 @@ public class UserServiceImpl implements UserService {
 		
 		return null;
 	}
+	@Override
+	public void resendEmailVerificationLink(String email) {
+		String emailToken = UUID.randomUUID().toString();
+		String emailVerificationLink = Helper.getEmailVerificationLink(emailToken);
+		emailService.sendEmail(email, "Verify your Account : Connect-Ease",emailVerificationLink);
+
+	}
 
 }
